@@ -1,8 +1,8 @@
-﻿Feature: Get posts
+﻿Feature: Get Id Products
 
 A short summary of the feature
 
-@positive @smoke @regression @integration @JIRA-7777 
+@positive @smoke @regression @integration 
 Scenario: Get by id 
 	Given I have an id with value 17
 	When I send a get request

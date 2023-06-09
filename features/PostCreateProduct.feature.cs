@@ -20,22 +20,23 @@ namespace TestAPI.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Get posts")]
-    public partial class GetPostsFeature
+    [NUnit.Framework.DescriptionAttribute("Create Product")]
+    public partial class CreateProductFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "GetPosts.feature"
+#line 1 "PostCreateProduct.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "features", "Get posts", "A short summary of the feature", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "features", "Create Product", "  Como usuario\r\n  Quiero poder crear un nuevo producto\r\n  Para agregarlo al siste" +
+                    "ma", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,24 +75,14 @@ namespace TestAPI.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Get by id")]
-        [NUnit.Framework.CategoryAttribute("positive")]
-        [NUnit.Framework.CategoryAttribute("smoke")]
-        [NUnit.Framework.CategoryAttribute("regression")]
-        [NUnit.Framework.CategoryAttribute("integration")]
-        [NUnit.Framework.CategoryAttribute("JIRA-7777")]
-        public void GetById()
+        [NUnit.Framework.DescriptionAttribute("Crear un nuevo producto exitosamente")]
+        public void CrearUnNuevoProductoExitosamente()
         {
-            string[] tagsOfScenario = new string[] {
-                    "positive",
-                    "smoke",
-                    "regression",
-                    "integration",
-                    "JIRA-7777"};
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get by id", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Crear un nuevo producto exitosamente", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
-this.ScenarioInitialize(scenarioInfo);
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -100,14 +91,26 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "name",
+                            "description",
+                            "image",
+                            "price",
+                            "categoryId"});
+                table1.AddRow(new string[] {
+                            "Purple Glasses",
+                            "Purple Glasses",
+                            "purple-glasses.jpg",
+                            "19.99",
+                            "7"});
 #line 7
- testRunner.Given("I have an id with value 17", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("I have a product with the following details:", ((string)(null)), table1, "Given ");
 #line hidden
-#line 8
- testRunner.When("I send a get request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
+    testRunner.When("I send a POST request to \"/api/products\" with the product details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 9
- testRunner.Then("I expected a valid code response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 11
+    testRunner.Then("the response status code should be for the create 403", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
